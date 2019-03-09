@@ -1,0 +1,142 @@
+@import './colors.scss';
+
+@for $i from 0 through 100 {
+  .w-#{5 * $i} {
+    width: 0px + 5 * $i;
+  }
+  .w-#{5 * $i}-p {
+    width: 0% + 5 * $i;
+  }
+  .h-#{5 * $i} {
+    height: 0px + 5 * $i;
+  }
+  .h-#{5 * $i}-p {
+    height: 0% + 5 * $i;
+  }
+  .font-size-#{$i} {
+    font-size: 0px + $i;
+  }
+  .z-index-#{$i} {
+    z-index: 0px + $i;
+  }
+  .m-#{$i} {
+    margin: 0px + $i;
+  }
+  .mm-#{$i} {
+    margin: 0px - $i;
+  }
+  .mt-#{$i} {
+    margin-top: 0px + $i !important;
+  }
+  .mt-m-#{$i} {
+    margin-top: 0px - $i !important;
+  }
+  .mb-#{$i} {
+    margin-bottom: 0px + $i !important;
+  }
+  .m-b-m-#{$i} {
+    margin-bottom: 0px - $i;
+  }
+  .ml-#{$i} {
+    margin-left: 0px + $i !important;
+  }
+  .ml-m-#{$i} {
+    margin-left: 0px - $i;
+  }
+  .mr-#{$i} {
+    margin-right: 0px + $i !important;
+  }
+  .mr-m-#{$i} {
+    margin-right: 0px - $i;
+  }
+  .p-#{$i} {
+    padding: 0px + $i !important;
+  }
+  .pm-#{$i} {
+    padding: 0px - $i;
+  }
+  .pt-#{$i} {
+    padding-top: 0px + $i !important;
+  }
+  .pt-m-#{$i} {
+    padding-top: 0px - $i;
+  }
+  .pb-#{$i} {
+    padding-bottom: 0px + $i !important;
+  }
+  .pb-m-#{$i} {
+    padding-bottom: 0px - $i;
+  }
+  .pl-#{$i} {
+    padding-left: 0px + $i !important;
+  }
+  .pl-m-#{$i} {
+    padding-left: 0px - $i;
+  }
+  .pr-#{$i} {
+    padding-right: 0px + $i !important;
+  }
+  .pr-m-#{$i} {
+    padding-right: 0px - $i;
+  }
+  @for $j from 0 through 100 {
+    .m-#{$i}-#{$j} {
+      margin: (0px + $i) (0px + $j) !important;
+    }
+    .p-#{$i}-#{$j} {
+      padding: (0px + $i) (0px + $j);
+    }
+  }
+}
+
+.m-0-a {
+  margin: 0 auto;
+}
+
+$positions: static absolute fixed relative sticky initial inherit;
+@each $position in $positions {
+  .position-#{$position} {
+    position: $position;
+  }
+}
+
+$displays: inline block flex grid inline-block inline-flex inline-grid inline-table list-item run-in table table-caption table-column-group table-header-group table-footer-group table-row-group table-cell table-column table-row none initial inherit;
+@each $display in $displays {
+  .display-#{$display} {
+    display: $display;
+  }
+}
+
+.full-width {
+  width: 100% !important;
+}
+
+$fontWeights: 100 200 300 400 500 600 700 800 900;
+@each $fontWeight in $fontWeights {
+  .font-weight-#{$fontWeight} {
+    font-weight: $fontWeight !important;
+  }
+}
+
+$textAligns: left center right justify initial inherit;
+@each $textAlign in $textAligns {
+  .text-#{$textAlign} {
+    text-align: $textAlign !important;
+  }
+}
+
+$cursors: auto pointer;
+@each $cursor in $cursors {
+  .cursor-#{$cursor} {
+    cursor: $cursor;
+  }
+}
+
+$floats: left right none inherit;
+@each $float in $floats {
+  .float-#{$float} {
+    float: $float;
+  }
+}
+
+

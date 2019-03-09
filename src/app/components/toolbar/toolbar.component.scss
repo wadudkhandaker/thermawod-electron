@@ -1,0 +1,17 @@
+:host{
+  z-index: 22;
+}
+
+.sidenav-toggle {
+  padding: 0;
+  margin: 0px;
+  @media (max-width: 959px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
