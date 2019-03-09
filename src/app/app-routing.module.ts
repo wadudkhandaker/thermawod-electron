@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import{AppointmentComponent} from './modules/appointment/components/appointment.component';
+import{QuoteComponent} from './modules/quote/components/quote.component';
 const routes: Routes = [
     {
         path: '',
@@ -9,11 +10,13 @@ const routes: Routes = [
     },
     {
         path: 'appointment',
-        loadChildren: './modules/appointment/appointment.module#AppointmentModule' 
+        // loadChildren: 'modules/appointment/appointment.module#AppointmentModule',
+        component: AppointmentComponent
     },
     {
         path: 'quote',
-        loadChildren: './modules/quote/quote.module#QuoteModule' 
+        // loadChildren: './modules/quote/quote.module#QuoteModule'
+        component:QuoteComponent 
     }
 ];
 
