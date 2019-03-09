@@ -1,0 +1,25 @@
+:host{
+  display: flex;
+  flex: 1 0 auto;
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    .title {
+      color: white;
+      margin:0;
+      padding:50px 20px;
+    }
+  
+  }
+}
+.thermawood-table tr:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}

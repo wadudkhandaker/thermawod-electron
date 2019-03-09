@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import{AppointmentComponent} from './modules/appointment/components/appointment.component';
-import{QuoteComponent} from './modules/quote/components/quote.component';
+import{QuoteComponent} from './modules/quote/components/quote/quote.component';
 const routes: Routes = [
     {
         path: '',
