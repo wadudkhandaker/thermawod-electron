@@ -25,6 +25,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { AppointmentModule } from './modules/appointment/appointment.module';
 import {  QuoteModule} from './modules/quote/quote.module';
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -54,8 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
-    }),
-    
+    })
   ],
   providers: [ElectronService],
   bootstrap: [AppComponent]
