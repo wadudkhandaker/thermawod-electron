@@ -2,10 +2,9 @@
   "name": "angular-electron",
   "version": "5.1.0",
   "description": "Angular 7 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "wadudkhandaker",
+    "email": "wadudkhandaker@gmail.com"
   },
   "keywords": [
     "angular",
@@ -81,6 +80,7 @@
     "zone.js": "0.8.29"
   },
   "dependencies": {
+    "electron-log": "^3.0.1",
     "electron-updater": "^4.0.6"
   }
 }

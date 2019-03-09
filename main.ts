@@ -1,11 +1,15 @@
-import { app, BrowserWindow, screen } from 'electron';
+import { app, BrowserWindow, screen, Menu, protocol, ipcMain } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
+const log = require('electron-log');
+const {autoUpdater} = require("electron-updater");
 
 let win, serve;
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
-
+autoUpdater.logger = log;
+autoUpdater.logger.transports.file.level = 'info';
+log.info('App starting...');
 function createWindow() {
 
   const electronScreen = screen;
@@ -26,7 +30,8 @@ function createWindow() {
     require('electron-reload')(__dirname, {
       electron: require(`${__dirname}/node_modules/electron`)
     });
-    win.loadURL('http://localhost:4200');
+    //win.loadURL('http://localhost:4200');
+   // win.loadURL(`file://${__dirname}/index.html#v${app.getVersion()}`);
   } else {
     win.loadURL(url.format({
       pathname: path.join(__dirname, 'dist/index.html'),
@@ -48,14 +53,44 @@ function createWindow() {
   });
 
 }
-
+function sendStatusToWindow(text) {
+  log.info(text);
+  win.webContents.send('message', text);
+}
 try {
-
+  autoUpdater.on('checking-for-update', () => {
+    sendStatusToWindow('Checking for update...');
+  })
+  autoUpdater.on('update-available', (info) => {
+    sendStatusToWindow('Update available.');
+  })
+  autoUpdater.on('update-not-available', (info) => {
+    sendStatusToWindow('Update not available.');
+  })
+  autoUpdater.on('error', (err) => {
+    sendStatusToWindow('Error in auto-updater. ' + err);
+  })
+  autoUpdater.on('download-progress', (progressObj) => {
+    let log_message = "Download speed: " + progressObj.bytesPerSecond;
+    log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
+    log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
+    sendStatusToWindow(log_message);
+  })
+  autoUpdater.on('update-downloaded', (info) => {
+    //sendStatusToWindow('Update downloaded');
+    autoUpdater.quitAndInstall();  
+  });
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
-  app.on('ready', createWindow);
-
+  // app.on('ready', createWindow);
+  app.on('ready', function()  {
+    createWindow();
+    //Make sure in dev. enviroment, auto updater won't be called.
+    if (process.env.NODE_ENV !== "dev") {
+      autoUpdater.checkForUpdates();
+    }
+  });
   // Quit when all windows are closed.
   app.on('window-all-closed', () => {
     // On OS X it is common for applications and their menu bar

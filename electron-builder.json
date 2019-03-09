@@ -1,4 +1,5 @@
 {
+  "appId": "com.example.companyDashboard",
   "productName": "angular-electron",
   "directories": {
     "output": "release/"
