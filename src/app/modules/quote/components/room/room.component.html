@@ -1,46 +1,51 @@
 
-  <div fxLayout="row" fxFlex="100">
-    <div fxFlex="40" class="left-section" fxLayout="column">
-      <h2>Rooms</h2>
-      <div *ngFor="let room of rooms" style="background: #ccc;" class="p-10 mb-10">
-          <h3>{{room.name}}</h3>
-          <!-- <h4>{{room.comments}}</h4> -->
-          <p> Windows: 0, DGUS:0</p>
-      </div>
-      <span fxFlex></span>
-      <div class="bottom-section">
-          <span fxFlex></span>
-          <div>
-              <button mat-raised-button color="primary" class="mr-10">Copy</button>
-              <button mat-raised-button color="accent" (click)="addRoom()">Add</button>
+  <div class="container" fxLayout="column" fxFlex="100">
+      <h2 style="width:100%" fxLayoutAlign="top left"><span (click)="goBack()">Back</span> Edit Rooms</h2>
+      <div fxLayout="row" fxFlex="100">
+      
+          <div fxFlex="40" class="left-section" fxLayout="column">
+            <h2>Rooms</h2>
+            <div *ngFor="let room of rooms" style="background: #ccc;" class="p-10 mb-10">
+                <h3>{{room.name}}</h3>
+                <!-- <h4>{{room.comments}}</h4> -->
+                <p> Windows: 0, DGUS:0</p>
+            </div>
+            <span fxFlex></span>
+            <div class="bottom-section">
+                <span fxFlex></span>
+                <div>
+                    <button mat-raised-button color="primary" class="mr-10">Copy</button>
+                    <button mat-raised-button color="accent" (click)="addRoom()">Add</button>
+                </div>
+            </div>
           </div>
-      </div>
-    </div>
-    <div fxFlex="60" class="pl-10 pr-10" fxLayout="column" fxLayoutAlign="center center" *ngIf="!isAddClick">
-      No Room Selected
-    </div>
-    <div fxFlex="60" class="pl-10 pr-10" fxLayout="column" fxLayoutAlign="top left" *ngIf="isAddClick">
-        <h2>Rooms Details</h2>
-        <mat-form-field>
-            <input matInput placeholder="Room Name" [(ngModel)]="newRoomName" (change)="changedName($event)">
-        </mat-form-field>
-        
-          <mat-form-field>
-            <textarea matInput placeholder="Comments" [(ngModel)]="newRoomComments"></textarea>
-          </mat-form-field>
-        
-          <mat-checkbox>Is Wet Area</mat-checkbox>
-          <div>
-            Windows: 0, DGUS:0
+          <div fxFlex="60" class="pl-10 pr-10" fxLayout="column" fxLayoutAlign="center center" *ngIf="!isAddClick">
+            No Room Selected
           </div>
-          <span fxFlex></span>
-          <div class="bottom-section">
-              <span fxFlex></span>
-              <div>
-                  <button mat-raised-button color="primary" class="mr-10" (click)="addWindow()">Edit</button>
-                  <button mat-raised-button color="accent" (click)="addRoom()">Delete</button>
-              </div>
+          <div fxFlex="60" class="pl-10 pr-10" fxLayout="column" fxLayoutAlign="top left" *ngIf="isAddClick">
+              <h2>Rooms Details</h2>
+              <mat-form-field>
+                  <input matInput placeholder="Room Name" [(ngModel)]="newRoomName" (change)="changedName($event)">
+              </mat-form-field>
+              
+                <mat-form-field>
+                  <textarea matInput placeholder="Comments" [(ngModel)]="newRoomComments"></textarea>
+                </mat-form-field>
+              
+                <mat-checkbox>Is Wet Area</mat-checkbox>
+                <div>
+                  Windows: 0, DGUS:0
+                </div>
+                <span fxFlex></span>
+                <div class="bottom-section">
+                    <span fxFlex></span>
+                    <div>
+                        <button mat-raised-button color="primary" class="mr-10" (click)="editRoom()">Edit</button>
+                        <button mat-raised-button color="accent">Delete</button>
+                    </div>
+                </div>
           </div>
-    </div>
+        </div>
   </div>
+  
 

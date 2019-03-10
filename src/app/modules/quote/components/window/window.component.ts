@@ -1,37 +1,62 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {MatSort, MatTableDataSource} from '@angular/material';
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
+import { Component, OnInit, ViewChild, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { SignatureFieldComponent } from '../signature-field/signature-field.component';
 @Component({
   selector: 'app-window',
   templateUrl:'./window.component.html', 
   styleUrls: ['./window.component.scss']
 })
 export class WindowComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
-  @ViewChild(MatSort) sort: MatSort;
-  constructor() {
-    this.dataSource.sort = this.sort;
+  isAddClick:boolean;
+  windows:object[]=[{
+    name:'',
+    drawingType:''
+  }];
+  @ViewChild(SignatureFieldComponent) public signature: SignatureFieldComponent;
+  @ViewChild('sigContainer') public signatureContainer: ElementRef;
+  constructor(private router:Router) {
+
   }
  ngOnInit(){}
+ public ngAfterViewInit() {
+  this.beResponsive();
+  this.setOptions();
+}
+
+// set the dimensions of the signature pad canvas
+public beResponsive() {
+  this.size(this.signatureContainer, this.signature);
+}
+
+public size(container: ElementRef, sig: SignatureFieldComponent) {
+    sig.signaturePad.set('canvasWidth', 700);
+    sig.signaturePad.set('canvasHeight', 250);
+}
+
+public setOptions() {
+  this.signature.signaturePad.set('penColor', 'rgb(0, 0, 0)');
+      this.signature.signaturePad.set('maxWidth', '3');
+      this.signature.signaturePad.set('backgroundColor', 'rgb(255, 255, 255)');
+      this.signature.signaturePad.clear(); // clearing is needed to set the background colour
+}
+
+public submit() {
+  console.log('CAPTURED SIGS:');
+}
+
+public clear() {
+  this.signature.clear();
+}
+ goBack(){
+  this.router.navigate(['/room']);
+ }
  onRowSelect(row){
   console.log(row);
+ }
+ addWindow(){
+    this.isAddClick =true;
+ }
+ goToQuoteExtras(){
+  this.router.navigate(['/quote-extras']);
  }
 }

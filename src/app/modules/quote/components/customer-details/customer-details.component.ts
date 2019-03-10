@@ -20,11 +20,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
 ];
 @Component({
-  selector: 'app-quote',
-  templateUrl:'./quote.component.html', 
-  styleUrls: ['./quote.component.scss']
+  selector: 'app-customer-details',
+  templateUrl:'./customer-details.component.html', 
+  styleUrls: ['./customer-details.component.scss']
 })
-export class QuoteComponent implements OnInit {
+export class CustomerDetailsComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   @ViewChild(MatSort) sort: MatSort;
@@ -32,7 +32,13 @@ export class QuoteComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
  ngOnInit(){}
+ goToRoom(){
+  this.router.navigate(['/room']);
+ }
+ goBack(){
+  this.router.navigate(['/quote']);
+ }
  onRowSelect(row){
-  this.router.navigate(['/customer-details']);
+  console.log(row);
  }
 }

@@ -11,6 +11,7 @@ export class RoomComponent implements OnInit {
   newRoomName:'';
   newRoomComments:'';
   selectedRoomIndex:number;
+  roomObj={};
   rooms: object[] = [{
     name:'',
     comments:''
@@ -54,24 +55,28 @@ export class RoomComponent implements OnInit {
   }
   
  }
- addWindow(){
-  let roomObj = {
+ goBack(){
+  this.router.navigate(['/customer-details']);
+ }
+ editRoom(){
+  this.router.navigate(['/window',this.roomObj['id']]);
+ }
+ addRoom(){
+   this.isAddClick = true;
+   this.roomObj = {
     id:this.quoteService.getNewGuid(),
     name:this.newRoomName,
     comments:this.newRoomComments
   }
   if(this.newRoomName){
-   this.rooms.push(roomObj);
+   this.rooms.push(this.roomObj);
    this.rooms[0]['name']= '';
    this.rooms[0]['comments']= '';
    this.rooms.unshift(this.rooms.pop())
    this.quoteService.setDataToStorage('rooms',this.rooms);
-   this.router.navigate(['/window',roomObj.id]);
+   
    this.newRoomName = '';
    this.newRoomComments= ''
   }
- }
- addRoom(){
-   this.isAddClick = true;
  }
 }

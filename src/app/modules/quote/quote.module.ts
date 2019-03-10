@@ -4,14 +4,20 @@ import { QuoteComponent } from './components/quote/quote.component';
 import { RoomComponent } from './components/room/room.component';
 import { WindowComponent } from './components/window/window.component';
 import { QuoteService } from './services/quote.service';
+import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
+import { QuoteExtrasComponent } from './components/quote-extras/quote-extras.component';
 // import { MatTableModule,MatSortModule,MatFormFieldModule,MatSelectModule } from '@angular/material';
 import {MaterialModule} from '../../material.module';
 import { Routes, RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { SignaturePadModule } from 'angular2-signaturepad';
+import { SignatureFieldComponent } from './components/signature-field/signature-field.component';
 const routes: Routes = [
   { path: '', component: QuoteComponent },
   { path: 'room', component: RoomComponent },
+  { path: 'customer-details', component: CustomerDetailsComponent },
+  { path: 'quote-extras', component: QuoteExtrasComponent },
   { path: 'window/:roomId', component: WindowComponent }
 ];
 @NgModule({
@@ -21,11 +27,15 @@ const routes: Routes = [
     MaterialModule,
     RouterModule.forChild(routes),
     FlexLayoutModule,
+    SignaturePadModule
   ],
   declarations: [
     QuoteComponent,
     RoomComponent,
-    WindowComponent
+    WindowComponent,
+    CustomerDetailsComponent,
+    SignatureFieldComponent,
+    QuoteExtrasComponent
   ],
   providers:[
     QuoteService
