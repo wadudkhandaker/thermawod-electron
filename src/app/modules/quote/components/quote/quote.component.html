@@ -1,32 +1,54 @@
 <div class="container" fxLayout="column">
-  <h2 style="width:100%" fxLayoutAlign="top left">Quote Master</h2>
+  <h2 style="width:100%" fxLayoutAlign="top left">Quote Master
+      <span fxFlex></span>
+      <button mat-icon-button> <mat-icon class="mr-5">refresh</mat-icon></button>
+      <button mat-icon-button> <mat-icon class="mr-5"><mat-icon class="mr-5">search</mat-icon></mat-icon></button>
+      <button mat-icon-button [disabled]="!isSelectedRow"> <mat-icon class="mr-5">business</mat-icon></button>
+      <button mat-icon-button [disabled]="!isSelectedRow" (click)="roomEdit()"> <mat-icon class="mr-5">edit</mat-icon></button>
+  
+  </h2>
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 thermawood-table">
 
         <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+        <!-- <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> position </th>
           <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-        </ng-container>
-      
+        </ng-container> -->
+        <ng-container matColumnDef="quote">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> QUOTE </th>
+            <td mat-cell *matCellDef="let element"> {{element.quote}} </td>
+          </ng-container>
         <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <ng-container matColumnDef="lead">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> LEAD </th>
+          <td mat-cell *matCellDef="let element"> {{element.lead}} </td>
         </ng-container>
       
         <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> NAME </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
         </ng-container>
       
         <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> LAST NAME </th>
+          <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
         </ng-container>
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ADDRESS </th>
+            <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+          </ng-container>
+          <ng-container matColumnDef="phoneNumber">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> PHONE NUMBER </th>
+              <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+            </ng-container>
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> EMAIL </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+              </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowSelect(row);"></tr>
+        <tr [ngClass]="{'highlight': selectedRowIndex == row.position}" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowSelect(row);"></tr>
       </table>
 </div>

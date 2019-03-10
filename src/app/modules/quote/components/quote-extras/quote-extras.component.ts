@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
 })
 export class QuoteExtrasComponent implements OnInit {
   isAddClick:boolean;
+  price:0;
+  quantity:'';
+  comment:'';
   windows:object[]=[{
     name:'',
     drawingType:''
@@ -26,7 +29,7 @@ export class QuoteExtrasComponent implements OnInit {
  addWindow(){
     this.isAddClick =true;
  }
- goToQuoteExtras(){
-  this.router.navigate(['/quote-extras']);
+ goToQuotePricing(){
+  this.router.navigate(['/quote-pricing']);
  }
 }

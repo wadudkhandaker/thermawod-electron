@@ -2,7 +2,7 @@
   <mat-sidenav #sidenav class="app-sidenav mat-elevation-z2" [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'">
     <mat-toolbar class="mat-elevation-z2 z-index-">
       <div class="logo">
-          <!-- <img src="./assets/thermawood-logo.png" alt="logo" width="170"/> -->
+          <img src="./assets/thermawood-logo.png" alt="logo" width="170"/>
         <!-- <p class="m-0 p-0 font-size-20 font-weight-700 white-text italic">Stack</p> -->
       </div>
     </mat-toolbar>
@@ -15,12 +15,13 @@
         <p class="m-0 p-0 font-size-14 white-text">john.deo@gmail.com</p>
       </div>
     </div> -->
-    <a class="nav-link"  [routerLink]="['/appointment']">
-      <mat-icon class="nav-link-icon">dashboard</mat-icon>
-      Dashboard
+    <a class="nav-link"  [routerLink]="['/appointment']" routerLinkActive="active">
+      <mat-icon class="nav-link-icon">event</mat-icon>
+      <!-- <i class="material-icons">event</i> -->
+      Appointments
     </a> 
     <a class="nav-link" [routerLink]="['/quote']" routerLinkActive="active">
-      <mat-icon class="nav-link-icon">list</mat-icon>
+      <mat-icon class="nav-link-icon">attach_money</mat-icon>
       Quote Master
     </a> 
 

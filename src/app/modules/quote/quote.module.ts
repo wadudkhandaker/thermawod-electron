@@ -6,6 +6,7 @@ import { WindowComponent } from './components/window/window.component';
 import { QuoteService } from './services/quote.service';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { QuoteExtrasComponent } from './components/quote-extras/quote-extras.component';
+import { QuotePricingComponent } from './components/quote-pricing/quote-pricing.component';
 // import { MatTableModule,MatSortModule,MatFormFieldModule,MatSelectModule } from '@angular/material';
 import {MaterialModule} from '../../material.module';
 import { Routes, RouterModule } from '@angular/router';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'room', component: RoomComponent },
   { path: 'customer-details', component: CustomerDetailsComponent },
   { path: 'quote-extras', component: QuoteExtrasComponent },
+  { path: 'quote-pricing', component: QuotePricingComponent },
   { path: 'window/:roomId', component: WindowComponent }
 ];
 @NgModule({
@@ -35,7 +37,8 @@ const routes: Routes = [
     WindowComponent,
     CustomerDetailsComponent,
     SignatureFieldComponent,
-    QuoteExtrasComponent
+    QuoteExtrasComponent,
+    QuotePricingComponent
   ],
   providers:[
     QuoteService

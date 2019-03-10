@@ -1,16 +1,19 @@
 <div class="container" fxLayout="column" fxFlex="100">
     <h2 style="width:100%" fxLayoutAlign="top left">Quote Extras
       <span fxFlex></span>
-      <button mat-button mat-raised-button (click)="goToQuoteExtras()">Save</button>
+      <button mat-button mat-raised-button (click)="goToQuotePricing()">Save</button>
     
     </h2>
     <div fxLayout="row" fxFlex="100">
         <div fxFlex="40" class="left-section" fxLayout="column">
-          <div *ngFor="let window of windows" style="background: #ccc;" class="p-10 mb-10">
-                <h3>{{window.name}}</h3>
-                <!-- <h4>{{room.comments}}</h4> -->
-                <p> DGUS:0, Area: 0.00m2</p>
-            </div>
+          <div *ngIf="isAddClick">
+              <div style="background: #ccc;" class="p-10 mb-10" >
+                  <h3>{{comment}}</h3>
+                  <!-- <h4>{{room.comments}}</h4> -->
+                  <span> <strong>Total: </strong>${{price}}.00 </span>
+              </div>
+          </div>
+          
           <span fxFlex></span>
           <div class="bottom-section">
               <span fxFlex></span>
@@ -21,86 +24,25 @@
           </div>
         </div>
         <div fxFlex="60" class="p-10" fxLayout="column" fxLayoutAlign="center center" *ngIf="!isAddClick">
-          No Window Selected
+          No Quote Extra Selected
         </div>
         <div fxFlex="60" class="pl-10 pr-10" fxLayout="column" fxLayoutAlign="top left" [hidden]="!isAddClick">
-            <div fxLayout="row" fxLayoutGap="30px">
-                <div fxFlex="70">
-                    <mat-form-field style="width:100%">
-                        <input matInput placeholder="Window Name" [(ngModel)]="newRoomName" (change)="changedName($event)">
-                    </mat-form-field>
-                </div>
-                <div  fxFlex="30" style="width:100%">
-                    <mat-form-field>
-                        <mat-select placeholder="Select">
-                          <mat-option value="option">Option</mat-option>
-                        </mat-select>
-                      </mat-form-field>
-                  </div>
-              
-                
-            </div>
-            <div fxLayout="column" fxFlex="100">
-                <h2>Window Drawing</h2>
-                <mat-radio-group>
-                    <mat-radio-button value="1" class="mr-10">Draw</mat-radio-button>
-                    <mat-radio-button value="2">Mark</mat-radio-button>
-                </mat-radio-group>
-                <div class="sig-container" #sigContainer>
-                    <signature-field ></signature-field>
-                </div>
-                <div fxLayout="row" fxLayoutGap="10px" class="mt-30">
-                    <mat-form-field fxFlex="5">
-                        <input matInput placeholder="Input">
-                      </mat-form-field>
-                    
-                      <mat-form-field fxFlex="5">
-                          <input matInput placeholder="Input">
-                        </mat-form-field>
-                        <mat-form-field fxFlex="5">
-                            <input matInput placeholder="Input">
-                          </mat-form-field>
-                      <mat-form-field fxFlex="10">
-                        <mat-select placeholder="Select">
-                          <mat-option value="option">Option</mat-option>
-                        </mat-select>
-                      </mat-form-field>
-                      
-                      
-                      <mat-form-field fxFlex="10">
-                          <mat-select placeholder="Select">
-                            <mat-option value="option">Option</mat-option>
-                          </mat-select>
-                        </mat-form-field>
-                        <mat-form-field fxFlex="10">
-                            <mat-select placeholder="Select">
-                              <mat-option value="option">Option</mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                        <mat-radio-group fxFlex="20" class="mt-20">
-                              <mat-radio-button value="1" class="mr-10">Draw</mat-radio-button>
-                              <mat-radio-button value="2">Mark</mat-radio-button>
-                          </mat-radio-group>
-                        
-                          <mat-form-field fxFlex="10">
-                              <input matInput placeholder="Input">
-                            </mat-form-field>
-                        
-                          <mat-form-field fxFlex="10">
-                            <mat-select placeholder="Select">
-                              <mat-option value="option">Option</mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                </div>
-                <span fxFlex></span>
-                <div class="bottom-section">
-                    <span fxFlex></span>
-                    <div>
-                        <button mat-raised-button color="accent">Delete</button>
-                    </div>
-                </div>
-            </div>
-            
+          <h3 class="mt-0">Quote Extra Details</h3>
+          
+          <mat-form-field>
+              <textarea matInput placeholder="Comment" [(ngModel)] = "comment"></textarea>
+            </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Quantity" [(ngModel)] = "quantity">
+          </mat-form-field>
+        
+          <mat-form-field>
+              <input matInput placeholder="Price" [(ngModel)] = "price">
+            </mat-form-field>
+            <mat-checkbox class="example-margin" > 
+                <label>Printer </label> 
+              </mat-checkbox>
+              <span> <strong>Total: </strong>${{price}}.00 </span>
         </div>
       </div>
 </div>

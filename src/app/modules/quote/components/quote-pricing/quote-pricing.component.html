@@ -1,0 +1,46 @@
+<div class="container" fxLayout="column">
+  <h2 style="width:100%" fxLayoutAlign="top left">Quote Pricing</h2>
+  <table mat-table [dataSource]="transactions" class="mat-elevation-z8">
+      <!-- Item Column -->
+      <ng-container matColumnDef="rooms">
+        <th mat-header-cell *matHeaderCellDef> Rooms </th>
+        <td mat-cell *matCellDef="let transaction"> {{transaction.rooms}} </td>
+        <td mat-footer-cell *matFooterCellDef> Total </td>
+      </ng-container>
+    
+      <!-- Cost Column -->
+      <ng-container matColumnDef="numberOfUnits">
+        <th mat-header-cell *matHeaderCellDef> Number of Units </th>
+        <td mat-cell *matCellDef="let transaction"> {{transaction.numberOfUnits | currency}} </td>
+        <td mat-footer-cell *matFooterCellDef> {{getTotalUnitCost() | currency}} </td>
+      </ng-container>
+      <ng-container matColumnDef="optionOne">
+          <th mat-header-cell *matHeaderCellDef> Option1 </th>
+          <td mat-cell *matCellDef="let transaction"> {{transaction.optionOne | currency}} </td>
+          <td mat-footer-cell *matFooterCellDef> {{getTotalOptionOneCost() | currency}} </td>
+        </ng-container>
+        <ng-container matColumnDef="optionTwo">
+            <th mat-header-cell *matHeaderCellDef> Option2 </th>
+            <td mat-cell *matCellDef="let transaction"> {{transaction.optionTwo | currency}} </td>
+            <td mat-footer-cell *matFooterCellDef> {{getTotalOptionTwoCost() | currency}} </td>
+          </ng-container>
+          <ng-container matColumnDef="optionThree">
+              <th mat-header-cell *matHeaderCellDef> Option3 </th>
+              <td mat-cell *matCellDef="let transaction"> {{transaction.optionThree | currency}} </td>
+              <td mat-footer-cell *matFooterCellDef> {{getTotalOptionThreeCost() | currency}} </td>
+            </ng-container>
+            <ng-container matColumnDef="optionFour">
+                <th mat-header-cell *matHeaderCellDef> Option4 </th>
+                <td mat-cell *matCellDef="let transaction"> {{transaction.optionFour | currency}} </td>
+                <td mat-footer-cell *matFooterCellDef> {{getTotalOptionFourCost() | currency}} </td>
+              </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+    </table>
+    <h3 style="width:100%;margin-bottom: 0">Quote Extras</h3>
+    <p style="width:100%;margin-top: 0">Use Of Memory Status $500.00</p>
+    <mat-form-field style="width:100%">
+        <textarea matInput placeholder="Comment"></textarea>
+      </mat-form-field>
+</div>

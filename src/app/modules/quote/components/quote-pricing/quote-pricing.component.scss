@@ -15,13 +15,6 @@
   
   }
 }
-.thermawood-table tr:hover,.thermawood-table tr.highlight {
-  background: #eee;
-  cursor: pointer;
-}
-.thermawood-table tr th {
-  background: rgb(212, 211, 211);
-}
-th.mat-sort-header-sorted {
-  color: black;
+tr.mat-footer-row {
+  font-weight: bold;
 }
