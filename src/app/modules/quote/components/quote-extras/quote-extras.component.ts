@@ -21,12 +21,13 @@ export class QuoteExtrasComponent implements OnInit {
     
   }
  goBack(){
-  this.router.navigate(['/room']);
+  // this.router.navigate(['/room']);
+  window.history.back();
  }
  onRowSelect(row){
   console.log(row);
  }
- addWindow(){
+ addQuoteExtra(){
     this.isAddClick =true;
  }
  goToQuotePricing(){

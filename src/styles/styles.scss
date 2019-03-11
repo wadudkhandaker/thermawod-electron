@@ -76,6 +76,21 @@ mat-card {
 .border-right-1{
   border-right: 1px solid #dcdcdc;
 }
+.mat-dialog-container{
+  min-width: 400px;
+}
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}
 // Font Style change
 @import '~@angular/material/theming';
 $custom-typography: mat-typography-config($font-family: '"Lato", sans-serif;');

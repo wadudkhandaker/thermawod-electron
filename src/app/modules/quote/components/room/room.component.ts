@@ -59,7 +59,7 @@ export class RoomComponent implements OnInit {
   this.router.navigate(['/customer-details']);
  }
  editRoom(){
-  this.router.navigate(['/window',this.roomObj['id']]);
+  this.router.navigate(['/window']);
  }
  addRoom(){
    this.isAddClick = true;

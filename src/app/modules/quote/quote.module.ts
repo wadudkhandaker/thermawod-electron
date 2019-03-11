@@ -6,7 +6,7 @@ import { WindowComponent } from './components/window/window.component';
 import { QuoteService } from './services/quote.service';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { QuoteExtrasComponent } from './components/quote-extras/quote-extras.component';
-import { QuotePricingComponent } from './components/quote-pricing/quote-pricing.component';
+import { QuotePricingComponent,DialogContentExampleDialog } from './components/quote-pricing/quote-pricing.component';
 // import { MatTableModule,MatSortModule,MatFormFieldModule,MatSelectModule } from '@angular/material';
 import {MaterialModule} from '../../material.module';
 import { Routes, RouterModule } from '@angular/router';
@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'customer-details', component: CustomerDetailsComponent },
   { path: 'quote-extras', component: QuoteExtrasComponent },
   { path: 'quote-pricing', component: QuotePricingComponent },
-  { path: 'window/:roomId', component: WindowComponent }
+  { path: 'window', component: WindowComponent }
 ];
 @NgModule({
   imports: [
@@ -38,11 +38,13 @@ const routes: Routes = [
     CustomerDetailsComponent,
     SignatureFieldComponent,
     QuoteExtrasComponent,
-    QuotePricingComponent
+    QuotePricingComponent,
+    DialogContentExampleDialog
   ],
   providers:[
     QuoteService
-  ]
+  ],
+  entryComponents: [DialogContentExampleDialog],
 })
 export class QuoteModule { }
 

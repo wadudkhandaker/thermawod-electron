@@ -1,29 +1,36 @@
 <div class="container" fxLayout="column" fxFlex="100">
-    <h2 style="width:100%" fxLayoutAlign="top left">Quote Extras
+    <h2 style="width:100%" fxLayoutAlign="top left"><span (click)="goBack()">
+        <button mat-icon-button> 
+        <mat-icon class="mr-5">chevron_left</mat-icon></button></span> <span style=" position: relative;
+        top: 6px;">  Quote Extras</span>
       <span fxFlex></span>
-      <button mat-button mat-raised-button (click)="goToQuotePricing()">Save</button>
-    
+      <button mat-button mat-raised-button color="primary"  (click)="goToQuotePricing()">Save</button>
     </h2>
     <div fxLayout="row" fxFlex="100">
         <div fxFlex="40" class="left-section" fxLayout="column">
-          <div *ngIf="isAddClick">
-              <div style="background: #ccc;" class="p-10 mb-10" >
-                  <h3>{{comment}}</h3>
-                  <!-- <h4>{{room.comments}}</h4> -->
-                  <span> <strong>Total: </strong>${{price}}.00 </span>
-              </div>
-          </div>
+
+            <div *ngIf="isAddClick" style="background: whitesmoke" class="pl-10 pr-10 pb-10 mb-10" >
+                <h3>{{comment}}</h3>
+                <!-- <h4>{{room.comments}}</h4> -->
+                <span> <strong>Total: </strong>${{price}}.00 </span>
+            </div>
+
           
           <span fxFlex></span>
           <div class="bottom-section">
               <span fxFlex></span>
               <div>
-                  <button mat-raised-button color="primary" class="mr-10">Copy</button>
-                  <button mat-raised-button color="accent" (click)="addWindow()">Add</button>
+                  <button mat-icon-button color="accent"><mat-icon class="mr-5">file_copy</mat-icon></button>
+                  <button mat-icon-button color="primary" (click)="addQuoteExtra()"><mat-icon class="mr-5">add</mat-icon></button>
+                  <!-- <button mat-raised-button color="primary" class="mr-10">Copy</button> -->
+                  <!-- <button mat-raised-button color="accent" (click)="addWindow()">Add</button> -->
               </div>
           </div>
         </div>
         <div fxFlex="60" class="p-10" fxLayout="column" fxLayoutAlign="center center" *ngIf="!isAddClick">
+            <div>
+                <mat-icon class="mr-5" style="font-size:50px">format_indent_increase</mat-icon>
+            </div>
           No Quote Extra Selected
         </div>
         <div fxFlex="60" class="pl-10 pr-10" fxLayout="column" fxLayoutAlign="top left" [hidden]="!isAddClick">
