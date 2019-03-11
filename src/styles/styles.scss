@@ -13,7 +13,11 @@ body {
   padding: 0;
   background: white !important;
 }
-
+.my-theme {
+	.mat-drawer{
+		background: whitesmoke !important;
+	}
+}
 input.mat-number-input {
   -moz-appearance: textfield;
 }

@@ -1,9 +1,71 @@
 @import '~@angular/material/theming';
 @include mat-core();
-
-
-$stack-app-primary: mat-palette($mat-indigo);
-$stack-app-accent:  mat-palette($mat-grey, A200, A100, A400);
+$mat-primary: (
+    50 : #e0ede8,
+    100 : #b3d3c6,
+    200 : #80b6a0,
+    300 : #4d997a,
+    400 : #26835e,
+    500 : #006d41,
+    600 : #00653b,
+    700 : #005a32,
+    800 : #00502a,
+    900 : #003e1c,
+    A100 : #74ffa4,
+    A200 : #41ff83,
+    A400 : #0eff62,
+    A700 : #00f355,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$mat-accent: (
+    50 : #f9e6e7,
+    100 : #efc2c4,
+    200 : #e4999c,
+    300 : #d97074,
+    400 : #d15157,
+    500 : #c93239,
+    600 : #c32d33,
+    700 : #bc262c,
+    800 : #b51f24,
+    900 : #a91317,
+    A100 : #ffdadb,
+    A200 : #ffa7a9,
+    A400 : #ff7477,
+    A700 : #ff5b5e,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$stack-app-primary: mat-palette($mat-primary);
+$stack-app-accent:  mat-palette($mat-accent, 500, A100, A400);
 
 $stack-app-warn: mat-palette($mat-red);
 

@@ -1,39 +1,52 @@
 <div class="container" fxLayout="column" fxFlex="100">
-    <h2 style="width:100%" fxLayoutAlign="top left"><span (click)="goBack()">Back</span> Windows for Lounge
+    <h2 style="width:100%" fxLayoutAlign="top left"><span (click)="goBack()"> <button mat-icon-button> 
+        <mat-icon class="mr-5">chevron_left</mat-icon></button></span> <span style=" position: relative;
+        top: 6px;">Windows for Lounge</span>
       <span fxFlex></span>
-      <button mat-button mat-raised-button (click)="goToQuoteExtras()">Save</button>
+      <button mat-button mat-raised-button color="primary" (click)="goToQuoteExtras()">Save</button>
     
     </h2>
     <div fxLayout="row" fxFlex="100">
         <div fxFlex="40" class="left-section" fxLayout="column">
-          <div *ngFor="let window of windows" style="background: #ccc;" class="p-10 mb-10">
-                <h3>{{window.name}}</h3>
+          <div  style="background: whitesmoke;" class="pl-10 pr-10 mb-10 window-list" (click)="isRowClick=true;isAddClick=false">
+                <h3 class="mb-0">W1</h3>
                 <!-- <h4>{{room.comments}}</h4> -->
                 <p> DGUS:0, Area: 0.00m2</p>
             </div>
+              <div *ngIf="showCreatedWindow" style="background: whitesmoke;" class="pl-10 pr-10 mb-10" (click)="isRowClick=false;isAddClick=true">
+                  <h3>{{windowName}}</h3>
+                  <!-- <h4>{{room.comments}}</h4> -->
+                  <p> DGUS:0, Area: 0.00m2</p>
+              </div>
+            
           <span fxFlex></span>
           <div class="bottom-section">
               <span fxFlex></span>
               <div>
-                  <button mat-raised-button color="primary" class="mr-10">Copy</button>
-                  <button mat-raised-button color="accent" (click)="addWindow()">Add</button>
+                  <!-- <button mat-raised-button color="primary" class="mr-10">Copy</button> -->
+                  <button mat-icon-button color="accent"><mat-icon class="mr-5">file_copy</mat-icon></button>
+                    <button mat-icon-button color="primary" (click)="addWindow()"><mat-icon class="mr-5">add</mat-icon></button>
+                  <!-- <button mat-raised-button color="accent" (click)="addWindow()">Add</button> -->
               </div>
           </div>
         </div>
-        <div fxFlex="60" class="p-10" fxLayout="column" fxLayoutAlign="center center" *ngIf="!isAddClick">
+        <div fxFlex="60" class="p-10" fxLayout="column" fxLayoutAlign="center center" *ngIf="!isAddClick && !isRowClick">
+            <div>
+                <mat-icon class="mr-5" style="font-size:50px">open_in_browser</mat-icon>
+            </div>
           No Window Selected
         </div>
         <div fxFlex="60" class="pl-10 pr-10" fxLayout="column" fxLayoutAlign="top left" [hidden]="!isAddClick">
             <div fxLayout="row" fxLayoutGap="30px">
                 <div fxFlex="70">
                     <mat-form-field style="width:100%">
-                        <input matInput placeholder="Window Name" [(ngModel)]="newRoomName" (change)="changedName($event)">
+                        <input matInput placeholder="Window Name" [(ngModel)]="windowName" (change)="changedName($event)">
                     </mat-form-field>
                 </div>
                 <div  fxFlex="30" style="width:100%">
                     <mat-form-field>
-                        <mat-select placeholder="Select">
-                          <mat-option value="option">Option</mat-option>
+                        <mat-select placeholder="Window Type">
+                          <mat-option value="Aliminum">Aliminum</mat-option>
                         </mat-select>
                       </mat-form-field>
                   </div>
@@ -51,52 +64,124 @@
                 </div>
                 <div fxLayout="row" fxLayoutGap="10px" class="mt-30">
                     <mat-form-field fxFlex="5">
-                        <input matInput placeholder="Input">
+                        <input matInput placeholder="DGU">
                       </mat-form-field>
                     
                       <mat-form-field fxFlex="5">
-                          <input matInput placeholder="Input">
+                          <input matInput placeholder="Height">
                         </mat-form-field>
                         <mat-form-field fxFlex="5">
-                            <input matInput placeholder="Input">
+                            <input matInput placeholder="Width">
                           </mat-form-field>
                       <mat-form-field fxFlex="10">
-                        <mat-select placeholder="Select">
-                          <mat-option value="option">Option</mat-option>
+                        <mat-select placeholder="Type">
+                          <mat-option value="Sash">Sash</mat-option>
                         </mat-select>
                       </mat-form-field>
                       
                       
                       <mat-form-field fxFlex="10">
-                          <mat-select placeholder="Select">
-                            <mat-option value="option">Option</mat-option>
+                          <mat-select placeholder="Thickness">
+                            <mat-option value="4mm">4mm</mat-option>
                           </mat-select>
                         </mat-form-field>
                         <mat-form-field fxFlex="10">
-                            <mat-select placeholder="Select">
-                              <mat-option value="option">Option</mat-option>
+                            <mat-select placeholder="Toughening">
+                              <mat-option value="None">None</mat-option>
                             </mat-select>
                           </mat-form-field>
-                        <mat-radio-group fxFlex="20" class="mt-20">
-                              <mat-radio-button value="1" class="mr-10">Draw</mat-radio-button>
-                              <mat-radio-button value="2">Mark</mat-radio-button>
+                        <mat-radio-group fxFlex="25" class="mt-20">
+                              <mat-radio-button value="1" class="mr-10">Obscuremen</mat-radio-button>
+                              <mat-radio-button value="2">Shape</mat-radio-button>
                           </mat-radio-group>
                         
                           <mat-form-field fxFlex="10">
-                              <input matInput placeholder="Input">
+                              <input matInput placeholder="Dificulty">
                             </mat-form-field>
-                        
-                          <mat-form-field fxFlex="10">
-                            <mat-select placeholder="Select">
-                              <mat-option value="option">Option</mat-option>
-                            </mat-select>
-                          </mat-form-field>
                 </div>
                 <span fxFlex></span>
                 <div class="bottom-section">
                     <span fxFlex></span>
                     <div>
-                        <button mat-raised-button color="accent">Delete</button>
+                        <!-- <button mat-icon-button color="primary" (click)="editRoom()"><mat-icon class="mr-5">edit</mat-icon></button> -->
+                        <button mat-icon-button color="accent"><mat-icon class="mr-5">delete</mat-icon></button>
+                        <!-- <button mat-raised-button color="accent">Delete</button> -->
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div fxFlex="60" class="pl-10 pr-10" fxLayout="column" fxLayoutAlign="top left" *ngIf="isRowClick">
+            <div fxLayout="row" fxLayoutGap="30px">
+                <div fxFlex="70">
+                    <mat-form-field style="width:100%">
+                        <input matInput placeholder="Window Name" value="W1">
+                    </mat-form-field>
+                </div>
+                <div  fxFlex="30" style="width:100%">
+                    <mat-form-field>
+                        <mat-select placeholder="Window Type">
+                          <mat-option value="Aliminum" selected>Aliminum</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                  </div>
+              
+                
+            </div>
+            <div fxLayout="column" fxFlex="100">
+                <h2>Window Drawing</h2>
+                <mat-radio-group>
+                    <mat-radio-button value="1" class="mr-10">Draw</mat-radio-button>
+                    <mat-radio-button value="2" checked>Mark</mat-radio-button>
+                </mat-radio-group>
+                <div class="sig-container">
+                    <img src="./assets/window.PNG" alt="window"/>
+                </div>
+                <div fxLayout="row" fxLayoutGap="10px" class="mt-30">
+                    <mat-form-field fxFlex="5">
+                        <input matInput placeholder="DGU" value="1">
+                      </mat-form-field>
+                    
+                      <mat-form-field fxFlex="5">
+                          <input matInput placeholder="Height" value="1130">
+                        </mat-form-field>
+                        <mat-form-field fxFlex="5">
+                            <input matInput placeholder="Width" value="530">
+                          </mat-form-field>
+                      <mat-form-field fxFlex="10">
+                        <mat-select placeholder="Type">
+                          <mat-option value="Sash">Sash</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      
+                      
+                      <mat-form-field fxFlex="10">
+                          <mat-select placeholder="Thickness">
+                            <mat-option value="4mm">4mm</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <mat-form-field fxFlex="10">
+                            <mat-select placeholder="Toughening">
+                              <mat-option value="None">None</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        <mat-radio-group fxFlex="25" class="mt-20">
+                              <mat-radio-button value="1" class="mr-10">Obscuremen</mat-radio-button>
+                              <mat-radio-button value="2">Shape</mat-radio-button>
+                          </mat-radio-group>
+                          <mat-form-field fxFlex="10">
+                              <mat-select placeholder="Dificulty">
+                                <mat-option value="None">None</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                </div>
+                <span fxFlex></span>
+                <div class="bottom-section">
+                    <span fxFlex></span>
+                    <div>
+                        <!-- <button mat-icon-button color="primary" (click)="editRoom()"><mat-icon class="mr-5">edit</mat-icon></button> -->
+                        <button mat-icon-button color="accent"><mat-icon class="mr-5">delete</mat-icon></button>
+                        <!-- <button mat-raised-button color="accent">Delete</button> -->
                     </div>
                 </div>
             </div>

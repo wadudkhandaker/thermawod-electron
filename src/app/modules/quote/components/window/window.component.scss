@@ -6,8 +6,15 @@
     border-right:1px solid;
     
   }
+  .window-list{
+    &:hover{
+      background: #006d41 !important;
+      color:white;
+      cursor: pointer;
+    }
+  }
   .bottom-section{
-    background: #ccc;
+    background: whitesmoke;
     padding: 10px;
   }
   .sig-container {

@@ -1,25 +1,50 @@
 
   <div class="container" fxLayout="column" fxFlex="100">
-      <h2 style="width:100%" fxLayoutAlign="top left"><span (click)="goBack()">Back</span> Edit Rooms</h2>
+      <h2 style="width:100%" fxLayoutAlign="top left"><span (click)="goBack()"> <button mat-icon-button> 
+          <mat-icon class="mr-5">chevron_left</mat-icon></button></span> <span style=" position: relative;
+          top: 6px;">  Edit Rooms</span></h2>
       <div fxLayout="row" fxFlex="100">
       
           <div fxFlex="40" class="left-section" fxLayout="column">
             <h2>Rooms</h2>
-            <div *ngFor="let room of rooms" style="background: #ccc;" class="p-10 mb-10">
-                <h3>{{room.name}}</h3>
+            <div style="background: whitesmoke;" class="p-10 mb-10">
+                <h3>Lounge</h3>
                 <!-- <h4>{{room.comments}}</h4> -->
-                <p> Windows: 0, DGUS:0</p>
+                <p> Windows: 1, DGUs:3</p>
             </div>
+            <div style="background: whitesmoke;" class="p-10 mb-10">
+                <h3>Bedroom 1</h3>
+                <!-- <h4>{{room.comments}}</h4> -->
+                <p> Windows: 1, DGUs:2</p>
+            </div>
+            <div style="background: whitesmoke;" class="p-10 mb-10">
+                <h3>Bedroom 2</h3>
+                <!-- <h4>{{room.comments}}</h4> -->
+                <p> Windows: 1, DGUs:2</p>
+            </div>
+            <div *ngIf="isAddClick">
+                <div style="background: whitesmoke;" class="p-10 mb-10">
+                    <h3>{{newRoomName}}</h3>
+                    <!-- <h4>{{room.comments}}</h4> -->
+                    <p> Windows: 0, DGUS:0</p>
+                </div>
+            </div>
+            
             <span fxFlex></span>
             <div class="bottom-section">
                 <span fxFlex></span>
                 <div>
-                    <button mat-raised-button color="primary" class="mr-10">Copy</button>
-                    <button mat-raised-button color="accent" (click)="addRoom()">Add</button>
+                    <!-- <button mat-raised-button color="primary" class="mr-10">Copy</button> -->
+                    <button mat-icon-button color="accent"><mat-icon class="mr-5">file_copy</mat-icon></button>
+                    <button mat-icon-button color="primary" (click)="addRoom()"><mat-icon class="mr-5">add</mat-icon></button>
+                    <!-- <button mat-raised-button color="accent" (click)="addRoom()">Add</button> -->
                 </div>
             </div>
           </div>
           <div fxFlex="60" class="pl-10 pr-10" fxLayout="column" fxLayoutAlign="center center" *ngIf="!isAddClick">
+            <div>
+                <mat-icon class="mr-5" style="font-size:50px">open_in_browser</mat-icon>
+            </div>
             No Room Selected
           </div>
           <div fxFlex="60" class="pl-10 pr-10" fxLayout="column" fxLayoutAlign="top left" *ngIf="isAddClick">
@@ -40,8 +65,10 @@
                 <div class="bottom-section">
                     <span fxFlex></span>
                     <div>
-                        <button mat-raised-button color="primary" class="mr-10" (click)="editRoom()">Edit</button>
-                        <button mat-raised-button color="accent">Delete</button>
+                        <!-- <button mat-raised-button color="primary" class="mr-10" (click)="editRoom()">Edit</button> -->
+                        <button mat-icon-button color="primary" (click)="editRoom()"><mat-icon class="mr-5">edit</mat-icon></button>
+                        <button mat-icon-button color="accent"><mat-icon class="mr-5">delete</mat-icon></button>
+                        <!-- <button mat-raised-button color="accent">Delete</button> -->
                     </div>
                 </div>
           </div>

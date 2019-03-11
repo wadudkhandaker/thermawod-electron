@@ -8,10 +8,13 @@ import { SignatureFieldComponent } from '../signature-field/signature-field.comp
 })
 export class WindowComponent implements OnInit {
   isAddClick:boolean;
+  showCreatedWindow:boolean;
+  isRowClick:boolean;
   windows:object[]=[{
     name:'',
     drawingType:''
   }];
+  windowName:''
   @ViewChild(SignatureFieldComponent) public signature: SignatureFieldComponent;
   @ViewChild('sigContainer') public signatureContainer: ElementRef;
   constructor(private router:Router) {
@@ -54,6 +57,8 @@ public clear() {
   console.log(row);
  }
  addWindow(){
+  this.showCreatedWindow =true;
+  this.isRowClick =false;
     this.isAddClick =true;
  }
  goToQuoteExtras(){

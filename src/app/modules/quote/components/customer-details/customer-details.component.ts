@@ -27,9 +27,41 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class CustomerDetailsComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
+  // firstName:'April';
+  // email:'april.gmail.com';
+  // phoneNumber:'5674576456';
+  // lastName:'Showers';
+  // companyNamr:'Company Name';
+  // mobilePhoneNumber:'Mobile Phone Number';
+  // addressLione1:'AddressLione 1';
+  // addressLione2:'AddressLione 2';
+  // suburb:'Suburb'; 
+  // city:'City';
+  // postCode:'Post Code';
+  // addressLione3:'AddressLione 3';
+  // addressLione4:'AddressLione 4';
+  // suburb1:'Suburb'; 
+  // city11:'City';
+  // postCode1:'Post Code';
   @ViewChild(MatSort) sort: MatSort;
   constructor(private router:Router) {
-    this.dataSource.sort = this.sort;
+    // this.dataSource.sort = this.sort;
+    // this.firstName='April';
+    // this.email='april.gmail.com';
+    // this.phoneNumber='5674576456';
+    // this.lastName ='Showers';
+    // this.companyNamr='Company Name';
+    // this.mobilePhoneNumber='Mobile Phone Number';
+    // this.addressLione1='AddressLione 1';
+    // this.addressLione2='AddressLione 2';
+    // this.suburb='Suburb'; 
+    // this.city='City';
+    // this.postCode='Post Code';
+    // this.addressLione3='AddressLione 3';
+    // this.addressLione4='AddressLione 4';
+    // this.suburb1='Suburb'; 
+    // this.city11='City';
+    // this.postCode1='Post Code';
   }
  ngOnInit(){}
  goToRoom(){

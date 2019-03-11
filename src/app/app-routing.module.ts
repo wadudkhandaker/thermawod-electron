@@ -5,7 +5,7 @@ import{QuoteComponent} from './modules/quote/components/quote/quote.component';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/appointment',
+        redirectTo: '/quote',
         pathMatch: 'full',
     },
     {

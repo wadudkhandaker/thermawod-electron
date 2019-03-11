@@ -16,7 +16,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 2, quote: 345, lead: 0, name:'Copper',lastName: 'Gemmel',address:'56 Roberta Crescent',phoneNumber:6456,email:'copper.gmail.com'},
   {position: 3, quote: 43545, lead: 6941, name:'JAN',lastName: 'Showers',address:'',phoneNumber:6456,email:'jan.gmail.com'},
   {position: 4, quote: 3452, lead: 9122, name:'Kest',lastName: 'Test',address:'',phoneNumber:76657,email:'kest.gmail.com'},
-  {position: 5, quote: 657, lead: 111,name:'April', lastName: 'CHB',address:'',phoneNumber:5674576456,email:'april.gmail.com'},
+  {position: 5, quote: 657, lead: 111,name:'April', lastName: 'Showers',address:'',phoneNumber:5674576456,email:'april.gmail.com'},
   {position: 6, quote: 5606, lead: 1107, name:'Vicky',lastName: 'Copper Chest Test',address:'',phoneNumber:346436,email:'vicky.gmail.com'},
   {position: 7, quote: 568, lead: 167, name:'Mark',lastName: 'Zopper Chest Test',address:'',phoneNumber:352535,email:'mark.gmail.com'},
   {position: 8, quote: 367, lead: 194,name:'Yiffen', lastName: 'Zing',address:'3 Gateman Street',phoneNumber:7547457,email:'yiffen.gmail.com'},

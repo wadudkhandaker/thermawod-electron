@@ -4,76 +4,87 @@
       <mat-icon class="mr-5">chevron_left</mat-icon></button></span> <span style=" position: relative;
       top: 6px;">  Customer Details</span>
       <span fxFlex></span>
-      <button mat-button mat-raised-button (click)="goToRoom()">Save</button>
+      <button mat-button mat-raised-button color="primary" (click)="goToRoom()">Save</button>
     </h2>
-    <div fxLayout="column" fxFlex="100">
-        <div fxLayout="row" fxFlex="100"  fxLayoutGap="50px">
+    <div fxLayout="column" >
+        <div fxLayout="row"  fxLayoutGap="50px">
             <div fxFlex="33" fxLayout="column">
                 <mat-form-field>
-                    <input matInput placeholder="Input">
+                    <input matInput placeholder="First Name" value="April">
                   </mat-form-field>
                 
                   <mat-form-field>
-                    <textarea matInput placeholder="Textarea"></textarea>
-                  </mat-form-field>
+                      <input matInput placeholder="Email" value="april.gmail.com">
+                    </mat-form-field>
                 
-                  <mat-form-field>
-                    <mat-select placeholder="Select">
-                      <mat-option value="option">Option</mat-option>
-                    </mat-select>
-                  </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Phone Number" value="5674576456">
+                      </mat-form-field>
             </div>
             <div fxFlex="33" fxLayout="column">
                 <mat-form-field>
-                    <input matInput placeholder="Input">
+                    <input matInput placeholder="Last Name" value="Showers">
                   </mat-form-field>
                 
                   <mat-form-field>
-                    <textarea matInput placeholder="Textarea"></textarea>
-                  </mat-form-field>
+                      <input matInput placeholder="Company Name" value="Company Name">
+                    </mat-form-field>
+                  
                 
-                  <mat-form-field>
-                    <mat-select placeholder="Select">
-                      <mat-option value="option">Option</mat-option>
-                    </mat-select>
-                  </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Last Name" value="Last Name">
+                      </mat-form-field>
+                    
             </div>
           </div>
 
-          <div fxLayout="column"fxFlex="100">
-              <h2 style="width:100%" fxLayoutAlign="top left">Customer Details
-                </h2>
+          <div fxLayout="column">
+              <div fxLayout="row"  fxLayoutGap="50px">
+                  <h2 fxFlex="33" fxLayoutAlign="top left">Customer Details
+                    </h2>
+                    <h2 fxFlex="33" fxLayoutAlign="top left">Billing Address
+                      </h2>
+              </div>
+              
                 <div fxLayout="row" fxFlex="100"  fxLayoutGap="50px">
               
                     <div fxFlex="33" fxLayout="column">
                         <mat-form-field>
-                            <input matInput placeholder="Input">
+                            <input matInput placeholder="AddressLione 1" value="AddressLione 1">
                           </mat-form-field>
                         
                           <mat-form-field>
-                            <textarea matInput placeholder="Textarea"></textarea>
-                          </mat-form-field>
+                              <input matInput placeholder="AddressLione 2" value="AddressLione 2">
+                            </mat-form-field>
                         
-                          <mat-form-field>
-                            <mat-select placeholder="Select">
-                              <mat-option value="option">Option</mat-option>
-                            </mat-select>
-                          </mat-form-field>
+                            <mat-form-field>
+                                <input matInput placeholder="Suburb" value="Suburb">
+                              </mat-form-field>
+                              <mat-form-field>
+                                  <input matInput placeholder="City" value="City">
+                                </mat-form-field>
+                                <mat-form-field>
+                                    <input matInput placeholder="Post Code" value="Post Code">
+                                  </mat-form-field>
                     </div>
                     <div fxFlex="33" fxLayout="column">
                         <mat-form-field>
-                            <input matInput placeholder="Input">
+                            <input matInput placeholder="AddressLione 1" value="AddressLione 1">
                           </mat-form-field>
                         
                           <mat-form-field>
-                            <textarea matInput placeholder="Textarea"></textarea>
-                          </mat-form-field>
+                              <input matInput placeholder="AddressLione 2" value="AddressLione 2">
+                            </mat-form-field>
                         
-                          <mat-form-field>
-                            <mat-select placeholder="Select">
-                              <mat-option value="option">Option</mat-option>
-                            </mat-select>
-                          </mat-form-field>
+                            <mat-form-field>
+                                <input matInput placeholder="Suburb" value="Suburb">
+                              </mat-form-field>
+                              <mat-form-field>
+                                  <input matInput placeholder="City" value="City">
+                                </mat-form-field>
+                                <mat-form-field>
+                                    <input matInput placeholder="Post Code" value="Post Code">
+                                  </mat-form-field>
                     </div>
                   </div>
           </div>
