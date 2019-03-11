@@ -1,6 +1,6 @@
 {
   "appId": "com.example.companyDashboard",
-  "productName": "angular-electron",
+  "productName": "Thermawood",
   "directories": {
     "output": "release/"
   },
